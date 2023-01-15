@@ -1,0 +1,54 @@
+
+plugins {
+    id 'idea'
+    id 'java'
+}
+
+group 'org.tyoda.wurm.shorterfemalesleeves'
+version '1.0'
+
+repositories {
+    mavenCentral()
+    maven { url "https://gotti.no-ip.org/maven/repository" }
+    maven { url 'https://jitpack.io' }
+}
+
+
+var serverJar = files("/media/tyoda/Files/w/p/wurmmods/libraries/server.jar")
+var commonJar = files("/media/tyoda/Files/w/p/wurmmods/libraries/common.jar")
+
+dependencies {
+    if(serverJar){
+        implementation(serverJar)
+    }else{
+        implementation 'org.gotti.wurmunlimited:server:4596061'
+    }
+    if(commonJar){
+        implementation(commonJar)
+    }else{
+        implementation 'org.gotti.wurmunlimited:common:4596061'
+    }
+    compileOnly 'org.gotti.wurmunlimited:server-modlauncher:0.45'
+}
+
+jar {
+    archiveFileName = "${project.name}.jar"
+}
+
+task pack(type: Zip) {
+    from fileTree(dir: 'pack', include: '**')
+    destinationDirectory = file("build/pack")
+    archiveName "shorterfemalesleeves-pack.jar"
+}
+
+
+task dist(type: Zip) {
+    into("mods", {
+        into(project.name, {
+            from jar
+            from pack
+        })
+        from fileTree(dir: 'mods', include: '*')
+    })
+    archiveFileName = "${project.name}-${project.version}.zip"
+}

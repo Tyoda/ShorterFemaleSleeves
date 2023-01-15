@@ -1,0 +1,1 @@
+armor.xml = player/armor.xml

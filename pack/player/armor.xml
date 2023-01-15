@@ -1,0 +1,12 @@
+<armor>
+    <base>
+        <baseCloth>
+            <default>
+                <female>
+                    <texturePlace>cloth</texturePlace>
+                    <texture>textures/Base/Female_default_cloth.dds</texture>
+                </female>
+            </default>
+        </baseCloth>
+    </base>
+</armor>
