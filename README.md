@@ -1,0 +1,2 @@
+# ShorterFemaleSleeves
+The tiniest WU mod ever to implement [Karthannar's ShorterFemaleSleeves](https://forum.wurmonline.com/index.php?/topic/137649-released-shorter-female-undershirt-sleeves/) on your server.
